@@ -2,6 +2,13 @@
 
 A demonstration application that shows how much data websites can collect from users without their explicit knowledge.
 
+Visit it here: [https://privacy-demo.vercel.app/](https://privacy-demo.vercel.app/)
+
+## Screenshots
+![Privacy Demo Screenshot 1](/screenshots/screenshot_1.png)
+![Privacy Demo Screenshot 2](/screenshots/screenshot_2.png)
+
+
 ## Purpose
 
 This application serves as an educational tool to demonstrate:
