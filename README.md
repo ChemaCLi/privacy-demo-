@@ -7,6 +7,8 @@ Visit it here: [https://privacy-demo.vercel.app/](https://privacy-demo.vercel.ap
 ## Screenshots
 ![Privacy Demo Screenshot 1](/screenshots/screenshot_1.png)
 ![Privacy Demo Screenshot 2](/screenshots/screenshot_2.png)
+![Privacy Demo Screenshot 3](/screenshots/screenshot_3.png)
+
 
 
 ## Purpose
