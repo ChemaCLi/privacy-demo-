@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐱 Demo de Privacidad  🐱</title>
+    <meta name="description" content="Demo de Privacidad">
+    <meta name="keywords" content="privacidad, seguridad, datos, web, demo, educación">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="google" content="notranslate">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .greeting {
+            font-size: 1.3em;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            color: #ffd700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .name-input {
+            margin: 15px 0;
+            padding: 10px 15px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            text-align: center;
+        }
+        
+        .cat-gif {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            margin: 20px 0;
+        }
+        
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        
+        .warning {
+            background: rgba(255, 0, 0, 0.2);
+            color: #ffcccc;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+
+        .privacy-section {
+            margin-top: 40px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: left;
+        }
+
+        .privacy-title {
+            font-size: 1.8em;
+            color: #ff6b6b;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .data-category {
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .data-category h3 {
+            color: #4ecdc4;
+            margin-top: 0;
+            font-size: 1.3em;
+        }
+
+        .shared-data {
+            border-left: 4px solid #ff6b6b;
+        }
+
+        .local-data {
+            border-left: 4px solid #95e1d3;
+        }
+
+        .data-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .data-list li {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 5px 0;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .data-value {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .data-description {
+            color: #ccc;
+            font-size: 0.85em;
+            font-style: italic;
+        }
+
+        .critical {
+            background: rgba(255, 107, 107, 0.3) !important;
+        }
+
+        .moderate {
+            background: rgba(255, 193, 7, 0.3) !important;
+        }
+
+        .low {
+            background: rgba(40, 167, 69, 0.3) !important;
+        }
+
+        .real-time-data {
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+        }
+
+        .data-counter {
+            font-size: 1.2em;
+            color: #ff6b6b;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐱 Este parece un sitio con GIFs de gatos  🐱</h1>
+        
+        <div class="greeting" id="greeting">
+            <div>¡Hola!</div>
+            <div style="margin-top: 10px; font-size: 0.9em;">.</div>
+        </div>
+        
+        <div class="warning">
+          Pero de hecho muchos de tus datos están siendo recopilados y compartidos con un servidor.
+        </div>
+        
+        <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" 
+             alt="GIF Divertido de Gato" 
+             class="cat-gif"
+             onerror="this.src='https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif'">
+        
+        <div class="status" id="status">
+
+        </div>
+        
+        <div class="status" id="data-status">
+            Recopilando datos del usuario para la demo...
+        </div>
+
+        <!-- Privacy Information Section -->
+        <div class="privacy-section">
+            <div class="privacy-title">
+                🔒 INFORMACIÓN DE PRIVACIDAD - ¿Qué datos estamos recopilando?
+            </div>
+
+            <div class="data-counter" id="data-counter">
+                Datos enviados al servidor: <span id="shared-count">0</span> elementos
+            </div>
+
+            <div class="data-category shared-data">
+                <h3>🚨 DATOS ENVIADOS AL SERVIDOR (Backend)</h3>
+                <p><strong>Estos datos se transmiten a través de WebSockets y se registran en el servidor:</strong></p>
+                <ul class="data-list" id="shared-data-list">
+                    <!-- Data will be populated dynamically -->
+                </ul>
+            </div>
+
+            <div class="data-category local-data">
+                <h3>💾 DATOS LOCALES DISPONIBLES (NO enviados al servidor)</h3>
+                <p><strong>Estos datos están disponibles en tu navegador pero NO se transmiten:</strong></p>
+                <ul class="data-list" id="local-data-list">
+                    <!-- Data will be populated dynamically -->
+                </ul>
+            </div>
+
+            <div class="real-time-data">
+                <h3>📡 MONITOREO EN TIEMPO REAL</h3>
+                <div id="real-time-info">
+                    <p><strong>Esta página está monitoreando continuamente:</strong></p>
+                    
+                    <div class="data-list">
+                        <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
+                            🖱️ <strong>Último clic:</strong> <span id="last-click" class="data-value">Ninguno aún</span>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
+                            📜 <strong>Scroll actual:</strong> <span id="current-scroll" class="data-value">0px</span>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
+                            ⏱️ <strong>Tiempo en página:</strong> <span id="time-on-page" class="data-value">0 segundos</span>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
+                            🔄 <strong>Tamaño ventana:</strong> <span id="window-size" class="data-value">Calculando...</span>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
+                            🎨 <strong>Huella digital del canvas:</strong> <span id="canvas-fingerprint" class="data-value">Generando...</span>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
+                            🎥 <strong>Dispositivos conectados:</strong> <span id="connected-devices" class="data-value">Detectando...</span>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
+                            📍 <strong>Ubicación GPS:</strong> <span id="gps-location" class="data-value">Solicitando permisos...</span>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
+                            📊 <strong>Total de eventos capturados:</strong> <span id="events-captured" class="data-value">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="warning" style="margin-top: 20px;">
+                <strong>⚠️ IMPORTANTE:</strong> Esta demostración muestra cómo los sitios web pueden recopilar 
+                una cantidad masiva de información personal sin que te des cuenta. En un sitio real, 
+                estos datos podrían venderse a terceros, usarse para publicidad dirigida, o incluso 
+                para rastrear tu actividad en línea.
+            </div>
+
+            <div class="warning">
+                <strong>🛡️ PROTECCIÓN:</strong> Para proteger tu privacidad, considera usar navegadores 
+                con protección de privacidad, VPNs, bloqueadores de anuncios, y revisa siempre las 
+                políticas de privacidad antes de usar un sitio web.
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const statusDiv = document.getElementById('status');
+        const dataStatusDiv = document.getElementById('data-status');
+        const sharedCountElement = document.getElementById('shared-count');
+        const greetingDiv = document.getElementById('greeting');
+        const sharedDataList = document.getElementById('shared-data-list');
+        const localDataList = document.getElementById('local-data-list');
+        let dataItemsSent = 0;
+        let collectedData = {};
+        let pageLoadTime = Date.now();
+        let totalEventsCaptuired = 0;
+
+        // Real-time monitoring elements
+        const lastClickElement = document.getElementById('last-click');
+        const currentScrollElement = document.getElementById('current-scroll');
+        const timeOnPageElement = document.getElementById('time-on-page');
+        const windowSizeElement = document.getElementById('window-size');
+        const canvasFingerprintElement = document.getElementById('canvas-fingerprint');
+        const connectedDevicesElement = document.getElementById('connected-devices');
+        const gpsLocationElement = document.getElementById('gps-location');
+        const eventsCapturedElement = document.getElementById('events-captured');
+
+        // Update status
+        statusDiv.textContent = 'Pero de hecho, esta página es una farza. Este gato es un espía que está intentando robar tus datos.';
+        
+        // Real-time monitoring functions
+        function updateTimeOnPage() {
+            const elapsed = Math.floor((Date.now() - pageLoadTime) / 1000);
+            const minutes = Math.floor(elapsed / 60);
+            const seconds = elapsed % 60;
+            if (minutes > 0) {
+                timeOnPageElement.textContent = `${minutes}m ${seconds}s`;
+            } else {
+                timeOnPageElement.textContent = `${seconds} segundos`;
+            }
+        }
+
+        function updateWindowSize() {
+            windowSizeElement.textContent = `${window.innerWidth}x${window.innerHeight}px`;
+        }
+
+        function updateScrollPosition() {
+            currentScrollElement.textContent = `${Math.round(window.scrollY)}px vertical, ${Math.round(window.scrollX)}px horizontal`;
+        }
+
+        function updateCanvasFingerprint() {
+            const fingerprint = getCanvasFingerprint();
+            if (fingerprint) {
+                // Show first 30 characters of the canvas data
+                canvasFingerprintElement.textContent = fingerprint.substring(0, 30) + '...';
+            } else {
+                canvasFingerprintElement.textContent = 'No disponible';
+            }
+        }
+
+        function updateConnectedDevices(devices) {
+            if (devices && Array.isArray(devices) && devices.length > 0) {
+                const deviceNames = devices.map(device => {
+                    if (device.label) {
+                        return device.label;
+                    } else if (device.kind) {
+                        return device.kind === 'audioinput' ? 'Micrófono' : 
+                               device.kind === 'videoinput' ? 'Cámara' : 
+                               device.kind === 'audiooutput' ? 'Altavoz' : device.kind;
+                    }
+                    return 'Dispositivo desconocido';
+                });
+                connectedDevicesElement.textContent = deviceNames.join(', ');
+            } else {
+                connectedDevicesElement.textContent = 'Sin permisos o no disponible';
+            }
+        }
+
+        function updateEventCounter() {
+            totalEventsCaptuired++;
+            eventsCapturedElement.textContent = totalEventsCaptuired;
+        }
+
+        // Initialize real-time monitoring
+        function initializeRealTimeMonitoring() {
+            // Update window size
+            updateWindowSize();
+            
+            // Update scroll position
+            updateScrollPosition();
+            
+            // Update canvas fingerprint
+            updateCanvasFingerprint();
+            
+            // Set up time counter (update every second)
+            setInterval(updateTimeOnPage, 1000);
+            
+            // Set up window resize listener
+            window.addEventListener('resize', () => {
+                updateWindowSize();
+                updateEventCounter();
+            });
+            
+            // Set up scroll listener with throttling
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(updateScrollPosition, 100);
+            });
+        }
+
+        // Update greeting when name is entered
+        
+        function updateGreeting() {
+            const name = '';
+            if (name) {
+                greetingDiv.innerHTML = `
+                    <div>¡Hola <strong>${name}</strong>! 👋</div>
+                    <div style="margin-top: 10px; font-size: 0.9em;">Gracias por compartirnos tus datos. ¡Toma este GIF como agradecimiento! 🎁</div>
+                `;
+            } else {
+                greetingDiv.innerHTML = `
+                    <div>¡Hola! 👋 Por favor ingresa tu nombre (opcional):</div>
+                    <input type="text" class="name-input" id="userName" placeholder="Tu nombre aquí..." maxlength="50">
+                    <div style="margin-top: 10px; font-size: 0.9em;">Gracias por compartirnos tus datos. ¡Toma este GIF como agradecimiento! 🎁</div>
+                `;
+                document.getElementById('userName').addEventListener('input', updateGreeting);
+            }
+        }
+        
+        // Update data counter
+        function updateDataCounter() {
+            dataItemsSent++;
+            sharedCountElement.textContent = dataItemsSent;
+        }
+
+        // Helper function to format data values
+        function formatDataValue(value) {
+            if (value === null || value === undefined) return 'No disponible';
+            if (typeof value === 'object') return JSON.stringify(value);
+            if (typeof value === 'boolean') return value ? 'Sí' : 'No';
+            return String(value);
+        }
+
+        // Helper function to truncate long values
+        function truncateValue(value, maxLength = 50) {
+            const formatted = formatDataValue(value);
+            if (formatted.length > maxLength) {
+                return formatted.substring(0, maxLength) + '...';
+            }
+            return formatted;
+        }
+
+        // Populate shared data list with real values
+        function populateSharedDataList(data) {
+            const items = [
+                {
+                    icon: '🌐',
+                    title: 'Información del navegador',
+                    value: `${data.userAgent ? data.userAgent.split(' ')[0] : 'Desconocido'}, ${data.language || 'Desconocido'}`,
+                    description: 'User-Agent, idioma, plataforma, versión',
+                    level: 'critical'
+                },
+                {
+                    icon: '📱',
+                    title: 'Información del dispositivo',
+                    value: `${data.screen?.width || '?'}x${data.screen?.height || '?'}, ${data.hardware?.memory || '?'}GB RAM, ${data.hardware?.cores || '?'} núcleos`,
+                    description: 'Resolución de pantalla, memoria RAM, núcleos de CPU',
+                    level: 'critical'
+                },
+                {
+                    icon: '🍪',
+                    title: 'Cookies y sesión',
+                    value: data.document?.cookies ? (data.document.cookies.length > 0 ? `${data.document.cookies.split(';').length} cookies` : 'Sin cookies') : 'Sin cookies',
+                    description: 'Todas las cookies del sitio web',
+                    level: 'critical'
+                },
+                {
+                    icon: '🖥️',
+                    title: 'Información de la ventana',
+                    value: `${data.window?.innerWidth || '?'}x${data.window?.innerHeight || '?'}, scroll: ${data.window?.scrollY || 0}px`,
+                    description: 'Tamaño, posición, scroll',
+                    level: 'moderate'
+                },
+                {
+                    icon: '🔋',
+                    title: 'Batería',
+                    value: data.battery?.level ? `${Math.round(data.battery.level * 100)}%, ${data.battery.charging ? 'Cargando' : 'Descargando'}` : 'No disponible',
+                    description: 'Nivel, estado de carga, tiempo restante',
+                    level: 'moderate'
+                },
+                {
+                    icon: '🌍',
+                    title: 'Zona horaria y región',
+                    value: `${data.timezone?.timezone || 'Desconocido'}, UTC${data.timezone?.offset ? (data.timezone.offset > 0 ? '-' : '+') + Math.abs(data.timezone.offset/60) : '?'}`,
+                    description: 'Ubicación temporal y configuración regional',
+                    level: 'moderate'
+                },
+                {
+                    icon: '🎥',
+                    title: 'Dispositivos multimedia',
+                    value: data.mediaDevices && Array.isArray(data.mediaDevices) ? `${data.mediaDevices.length} dispositivos detectados` : 'No disponible',
+                    description: 'Cámaras, micrófonos disponibles',
+                    level: 'moderate'
+                },
+                {
+                    icon: '🎨',
+                    title: 'Huella digital del canvas',
+                    value: data.canvas ? 'Generada' : 'No disponible',
+                    description: 'Identificador único basado en renderizado',
+                    level: 'moderate'
+                },
+                {
+                    icon: '🖼️',
+                    title: 'Información WebGL',
+                    value: data.webgl?.vendor ? `${data.webgl.vendor}, ${data.webgl.renderer}` : 'No disponible',
+                    description: 'Tarjeta gráfica, controladores',
+                    level: 'moderate'
+                },
+                {
+                    icon: '🌐',
+                    title: 'Conexión',
+                    value: data.connection?.effectiveType ? `${data.connection.effectiveType}, ${data.connection.downlink}Mbps` : 'No disponible',
+                    description: 'Velocidad de internet, tipo de red',
+                    level: 'low'
+                },
+                {
+                    icon: '📄',
+                    title: 'Página web',
+                    value: `${data.document?.domain || 'Desconocido'}, ${data.document?.url ? data.document.url.length : 0} caracteres URL`,
+                    description: 'URL, referrer, título',
+                    level: 'low'
+                }
+            ];
+
+            sharedDataList.innerHTML = items.map(item => `
+                <li class="${item.level}">
+                    ${item.icon} <strong>${item.title}:</strong> 
+                    <span class="data-value">${truncateValue(item.value)}</span><br>
+                    <span class="data-description">(${item.description})</span>
+                </li>
+            `).join('');
+        }
+
+        // Populate local data list
+        function populateLocalDataList() {
+            const localStorageSize = localStorage.length;
+            const sessionStorageSize = sessionStorage.length;
+            
+            const items = [
+                {
+                    icon: '📁',
+                    title: 'Contenido del localStorage',
+                    value: `${localStorageSize} elementos guardados`,
+                    description: 'Datos guardados por otros sitios web'
+                },
+                {
+                    icon: '🗂️',
+                    title: 'Contenido del sessionStorage',
+                    value: `${sessionStorageSize} elementos temporales`,
+                    description: 'Datos temporales de la sesión'
+                },
+                {
+                    icon: '📚',
+                    title: 'Historial de navegación',
+                    value: 'Inaccesible por JavaScript',
+                    description: 'Sitios web visitados anteriormente'
+                },
+                {
+                    icon: '⭐',
+                    title: 'Marcadores',
+                    value: 'Inaccesible por JavaScript',
+                    description: 'Favoritos guardados'
+                },
+                {
+                    icon: '🔑',
+                    title: 'Contraseñas guardadas',
+                    value: 'Protegido por el navegador',
+                    description: 'Credenciales almacenadas'
+                },
+                {
+                    icon: '🧩',
+                    title: 'Extensiones instaladas',
+                    value: 'Inaccesible por JavaScript',
+                    description: 'Add-ons y plugins del navegador'
+                },
+                {
+                    icon: '💳',
+                    title: 'Datos de autocompletado',
+                    value: 'Protegido por el navegador',
+                    description: 'Información de formularios guardada'
+                },
+                {
+                    icon: '🗃️',
+                    title: 'Base de datos IndexedDB',
+                    value: 'Acceso limitado al dominio',
+                    description: 'Almacenamiento local de aplicaciones'
+                },
+                {
+                    icon: '📱',
+                    title: 'Notificaciones',
+                    value: Notification?.permission ? `Permisos: ${Notification.permission}` : 'No disponible',
+                    description: 'Permisos y configuraciones'
+                },
+                {
+                    icon: '🖨️',
+                    title: 'Configuración de impresión',
+                    value: 'Inaccesible por JavaScript',
+                    description: 'Impresoras disponibles'
+                }
+            ];
+
+            localDataList.innerHTML = items.map(item => `
+                <li class="low">
+                    ${item.icon} <strong>${item.title}:</strong> 
+                    <span class="data-value">${item.value}</span><br>
+                    <span class="data-description">(${item.description})</span>
+                </li>
+            `).join('');
+        }
+
+        // Comprehensive data collection function
+        async function collectUserData() {
+            const data = {
+                timestamp: new Date().toISOString(),
+                userName: '',
+                
+                // Browser and device information
+                userAgent: navigator.userAgent,
+                language: navigator.language,
+                languages: navigator.languages,
+                platform: navigator.platform,
+                cookieEnabled: navigator.cookieEnabled,
+                doNotTrack: navigator.doNotTrack,
+                
+                // Screen and display information
+                screen: {
+                    width: screen.width,
+                    height: screen.height,
+                    availWidth: screen.availWidth,
+                    availHeight: screen.availHeight,
+                    colorDepth: screen.colorDepth,
+                    pixelDepth: screen.pixelDepth,
+                    orientation: screen.orientation ? screen.orientation.angle : 'unknown'
+                },
+                
+                // Window information
+                window: {
+                    innerWidth: window.innerWidth,
+                    innerHeight: window.innerHeight,
+                    outerWidth: window.outerWidth,
+                    outerHeight: window.outerHeight,
+                    scrollX: window.scrollX,
+                    scrollY: window.scrollY,
+                    devicePixelRatio: window.devicePixelRatio
+                },
+                
+                // Document information
+                document: {
+                    title: document.title,
+                    url: document.URL,
+                    referrer: document.referrer,
+                    domain: document.domain,
+                    cookies: document.cookie,
+                    lastModified: document.lastModified,
+                    charset: document.characterSet,
+                    readyState: document.readyState
+                },
+                
+                // Connection information
+                connection: navigator.connection ? {
+                    effectiveType: navigator.connection.effectiveType,
+                    downlink: navigator.connection.downlink,
+                    rtt: navigator.connection.rtt,
+                    saveData: navigator.connection.saveData
+                } : null,
+                
+                // Hardware information
+                hardware: {
+                    memory: navigator.deviceMemory || null,
+                    cores: navigator.hardwareConcurrency || null,
+                    maxTouchPoints: navigator.maxTouchPoints || 0,
+                    vendor: navigator.vendor,
+                    webdriver: navigator.webdriver
+                },
+                
+                // Battery information (if available)
+                battery: null,
+                
+                // Timezone information
+                timezone: {
+                    offset: new Date().getTimezoneOffset(),
+                    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+                    locale: Intl.DateTimeFormat().resolvedOptions().locale
+                },
+                
+                // Performance information
+                performance: {
+                    timing: performance.timing ? {
+                        navigationStart: performance.timing.navigationStart,
+                        loadEventEnd: performance.timing.loadEventEnd,
+                        domContentLoadedEventEnd: performance.timing.domContentLoadedEventEnd
+                    } : null,
+                    navigation: performance.navigation ? {
+                        type: performance.navigation.type,
+                        redirectCount: performance.navigation.redirectCount
+                    } : null
+                },
+                
+                // Media devices
+                mediaDevices: null,
+                
+                // WebGL information
+                webgl: getWebGLInfo(),
+                
+                // Canvas fingerprinting
+                canvas: getCanvasFingerprint(),
+                
+                // Local storage check
+                localStorage: typeof(Storage) !== "undefined",
+                sessionStorage: typeof(Storage) !== "undefined",
+                
+                // WebRTC information
+                webrtc: null
+            };
+            
+            // Collect battery information
+            if ('getBattery' in navigator) {
+                try {
+                    const battery = await navigator.getBattery();
+                    data.battery = {
+                        charging: battery.charging,
+                        chargingTime: battery.chargingTime,
+                        dischargingTime: battery.dischargingTime,
+                        level: battery.level
+                    };
+                } catch (e) {
+                    data.battery = { error: 'Error collecting battery info' };
+                }
+            }
+            
+            // Collect media devices
+            if ('mediaDevices' in navigator && 'enumerateDevices' in navigator.mediaDevices) {
+                try {
+                    const devices = await navigator.mediaDevices.enumerateDevices();
+                    data.mediaDevices = devices.map(device => ({
+                        kind: device.kind,
+                        label: device.label,
+                        deviceId: device.deviceId ? 'present' : 'not present'
+                    }));
+                    
+                    // Update real-time display
+                    updateConnectedDevices(data.mediaDevices);
+                } catch (e) {
+                    data.mediaDevices = { error: 'Error collecting media devices' };
+                    updateConnectedDevices(null);
+                }
+            } else {
+                updateConnectedDevices(null);
+            }
+            
+            collectedData = data;
+            return data;
+        }
+        
+        // WebGL fingerprinting
+        function getWebGLInfo() {
+            try {
+                const canvas = document.createElement('canvas');
+                const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+                
+                if (!gl) return null;
+                
+                return {
+                    vendor: gl.getParameter(gl.VENDOR),
+                    renderer: gl.getParameter(gl.RENDERER),
+                    version: gl.getParameter(gl.VERSION),
+                    shadingLanguageVersion: gl.getParameter(gl.SHADING_LANGUAGE_VERSION),
+                    supportedExtensions: gl.getSupportedExtensions()
+                };
+            } catch (e) {
+                return { error: 'Error collecting WebGL info' };
+            }
+        }
+        
+        // Canvas fingerprinting
+        function getCanvasFingerprint() {
+            try {
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                
+                ctx.textBaseline = 'top';
+                ctx.font = '14px Arial';
+                ctx.fillText('Canvas fingerprinting test 🐱', 2, 2);
+                
+                return canvas.toDataURL();
+            } catch (e) {
+                return null;
+            }
+        }
+        
+        // Collect geolocation
+        function collectLocation() {
+            gpsLocationElement.textContent = 'Solicitando permisos...';
+            
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const locationData = {
+                            latitude: position.coords.latitude,
+                            longitude: position.coords.longitude,
+                            accuracy: position.coords.accuracy,
+                            altitude: position.coords.altitude,
+                            altitudeAccuracy: position.coords.altitudeAccuracy,
+                            heading: position.coords.heading,
+                            speed: position.coords.speed,
+                            timestamp: position.timestamp
+                        };
+                        
+                        // Update real-time display
+                        gpsLocationElement.textContent = `${position.coords.latitude.toFixed(6)}, ${position.coords.longitude.toFixed(6)} (±${Math.round(position.coords.accuracy)}m)`;
+                        
+                        socket.emit('location-data', locationData);
+                        updateDataCounter();
+                        updateEventCounter();
+                        dataStatusDiv.innerHTML += '<br>📍 ¡Datos de ubicación recopilados!';
+                        
+                        // Update shared data list with location
+                        populateSharedDataList({...collectedData, location: locationData});
+                    },
+                    (error) => {
+                        const locationError = {
+                            error: error.message,
+                            code: error.code
+                        };
+                        
+                        // Update real-time display
+                        gpsLocationElement.textContent = `Error: ${error.message}`;
+                        
+                        socket.emit('location-data', locationError);
+                        dataStatusDiv.innerHTML += '<br>📍 Acceso a ubicación denegado o falló';
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            } else {
+                gpsLocationElement.textContent = 'No compatible con este navegador';
+                socket.emit('location-data', { error: 'Geolocation not supported' });
+                dataStatusDiv.innerHTML += '<br>📍 Geolocalización no compatible';
+            }
+        }
+
+        // Listen for ngrok headers from server
+        socket.on('ngrok-headers', (headers) => {
+            console.log('NGROK HEADERS:', headers);
+        });
+        
+        // Start data collection when page loads
+        window.addEventListener('load', async () => {
+            try {
+                // Initialize real-time monitoring first
+                initializeRealTimeMonitoring();
+                
+                const userData = await collectUserData();
+                socket.emit('user-data', userData);
+                updateDataCounter();
+                updateEventCounter();
+                
+                // Populate the data lists with real values
+                populateSharedDataList(userData);
+                populateLocalDataList();
+                
+                dataStatusDiv.innerHTML = '✅ ¡Datos del usuario recopilados y enviados al servidor!';
+                
+                // Collect location after other data
+                setTimeout(() => {
+                    collectLocation();
+                }, 1000);
+                
+            } catch (error) {
+                console.error('Error collecting data:', error);
+                dataStatusDiv.textContent = '❌ Error recopilando algunos datos';
+            }
+        });
+        
+        // Collect additional data on user interactions
+        document.addEventListener('click', (e) => {
+            // Update real-time display
+            lastClickElement.textContent = `X: ${e.clientX}, Y: ${e.clientY} en ${e.target.tagName || 'elemento'}`;
+            
+            socket.emit('user-data', {
+                event: 'click',
+                timestamp: new Date().toISOString(),
+                coordinates: { x: e.clientX, y: e.clientY },
+                target: e.target.tagName
+            });
+            updateDataCounter();
+            updateEventCounter();
+        });
+        
+        document.addEventListener('scroll', () => {
+            socket.emit('user-data', {
+                event: 'scroll',
+                timestamp: new Date().toISOString(),
+                scrollY: window.scrollY,
+                scrollX: window.scrollX
+            });
+            updateDataCounter();
+            updateEventCounter();
+        });
+        
+        // Connection status
+        socket.on('connect', () => {
+            console.log('Connected to server');
+        });
+        
+        socket.on('disconnect', () => {
+            console.log('Disconnected from server');
+        });
+    </script>
+</body>
+</html>
