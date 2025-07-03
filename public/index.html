@@ -303,14 +303,15 @@
         // HTTP request helper function
         async function sendDataToServer(endpoint, data) {
             try {
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data)
-                });
-                return await response.json();
+              console.log('Sending data to server:', data);
+                // const response = await fetch(endpoint, {
+                //     method: 'POST',
+                //     headers: {
+                //         'Content-Type': 'application/json',
+                //     },
+                //     body: JSON.stringify(data)
+                // });
+                // return await response.json();
             } catch (error) {
                 console.error('Error sending data:', error);
                 return { error: error.message };
