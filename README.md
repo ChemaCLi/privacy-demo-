@@ -1,15 +1,150 @@
-# Privacy and Security Demo
+# 🐱 Privacy Demo
 
-This project demonstrates how much data can be collected from users visiting a seemingly innocent website with funny cat GIFs.
+A demonstration application that shows how much data websites can collect from users without their explicit knowledge.
 
-## ⚠️ Educational Purpose Only
+## Purpose
 
-This demo is designed for privacy and security education. It shows how websites can collect extensive user data without explicit consent.
+This application serves as an educational tool to demonstrate:
+- How much personal data can be collected automatically by websites
+- Real-time monitoring of user interactions
+- The difference between data sent to servers vs. data kept locally
+- Privacy implications of modern web browsing
 
-## What Data is Collected
+## Features
 
-The demo collects:
+- **Real-time Data Collection**: Automatically collects browser, device, and interaction data
+- **Visual Privacy Analysis**: Shows what data is being shared vs. kept local
+- **Geolocation Tracking**: Demonstrates location data collection (with permission)
+- **Fingerprinting Techniques**: Canvas and WebGL fingerprinting examples
+- **Interactive Monitoring**: Real-time tracking of clicks, scrolls, and time spent
 
+## Technology Stack
+
+- **Frontend**: HTML, CSS, JavaScript (Vanilla)
+- **Backend**: Node.js with Express.js
+- **Deployment**: Vercel (Serverless Functions)
+
+## Deployment to Vercel
+
+This application has been configured for deployment to Vercel using serverless functions.
+
+### Changes Made for Vercel Deployment
+
+1. **Serverless Function Structure**: 
+   - Created `api/index.js` as the main serverless function
+   - Replaced Socket.IO with HTTP-based communication for better serverless compatibility
+
+2. **Configuration Files**:
+   - `vercel.json`: Configures routing and function settings
+   - Rewrites all requests to the serverless function
+   - Sets up CORS headers
+
+3. **API Endpoints**:
+   - `POST /api/user-data`: Receives user data
+   - `POST /api/location-data`: Receives location data
+   - `GET /api/headers`: Returns request headers for analysis
+
+### Deployment Steps
+
+1. **Install Vercel CLI** (if not already installed):
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Deploy to Vercel**:
+   ```bash
+   vercel
+   ```
+
+3. **Follow the prompts**:
+   - Link to existing project or create new one
+   - Choose settings (usually defaults work fine)
+   - Deploy!
+
+### Alternative: Deploy via Git
+
+1. **Push to GitHub**:
+   ```bash
+   git add .
+   git commit -m "Prepare for Vercel deployment"
+   git push origin main
+   ```
+
+2. **Connect to Vercel**:
+   - Go to [vercel.com](https://vercel.com)
+   - Import your GitHub repository
+   - Vercel will automatically detect the configuration
+
+### Environment Variables
+
+No environment variables are required for basic functionality.
+
+## Local Development
+
+To run locally:
+
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Start the server**:
+   ```bash
+   npm start
+   ```
+
+3. **Open in browser**:
+   ```
+   http://localhost:3000
+   ```
+
+## Configuration Files
+
+### `vercel.json`
+```json
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 30
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/api/index.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, PUT, DELETE, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-Requested-With, Content-Type, Accept, Authorization"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Key Configuration Explanations
+
+- **Functions**: Configures the serverless function with a 30-second timeout
+- **Rewrites**: Routes all API calls and static requests to the main function
 ### 📍 Location Data (Most Important)
 - GPS coordinates (latitude, longitude)
 - Location accuracy

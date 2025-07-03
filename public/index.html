@@ -198,49 +198,51 @@
         <!-- Privacy Information Section -->
         <div class="privacy-section">
             <div class="privacy-title">
-                🔒 INFORMACIÓN DE PRIVACIDAD - ¿Qué datos estamos recopilando?
+                🔍 Análisis de Privacidad en Tiempo Real
             </div>
-
-            <div class="data-counter" id="data-counter">
-                Datos enviados al servidor: <span id="shared-count">0</span> elementos
+            
+            <div class="data-counter">
+                📊 Datos enviados al servidor: <span id="shared-count">0</span>
             </div>
 
             <div class="data-category shared-data">
-                <h3>🚨 DATOS ENVIADOS AL SERVIDOR (Backend)</h3>
-                <p><strong>Estos datos se transmiten a través de WebSockets y se registran en el servidor:</strong></p>
+                <h3>🚨 Datos Compartidos con el Servidor</h3>
+                <p style="color: #ffcccc; font-size: 0.9em; margin-bottom: 15px;">
+                    Los siguientes datos han sido enviados automáticamente al servidor sin tu consentimiento explícito:
+                </p>
                 <ul class="data-list" id="shared-data-list">
-                    <!-- Data will be populated dynamically -->
+                    <!-- Será poblado dinámicamente -->
                 </ul>
             </div>
 
             <div class="data-category local-data">
-                <h3>💾 DATOS LOCALES DISPONIBLES (NO enviados al servidor)</h3>
-                <p><strong>Estos datos están disponibles en tu navegador pero NO se transmiten:</strong></p>
+                <h3>🔒 Datos Locales (Solo en tu navegador)</h3>
+                <p style="color: #ccffcc; font-size: 0.9em; margin-bottom: 15px;">
+                    Estos datos se mantienen en tu dispositivo, pero podrían ser accedidos por scripts maliciosos:
+                </p>
                 <ul class="data-list" id="local-data-list">
-                    <!-- Data will be populated dynamically -->
+                    <!-- Será poblado dinámicamente -->
                 </ul>
             </div>
 
             <div class="real-time-data">
-                <h3>📡 MONITOREO EN TIEMPO REAL</h3>
-                <div id="real-time-info">
-                    <p><strong>Esta página está monitoreando continuamente:</strong></p>
-                    
+                <h3 style="color: #4ecdc4; margin-top: 0;">📡 Monitoreo en Tiempo Real</h3>
+                <div class="data-list">
                     <div class="data-list">
                         <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
-                            🖱️ <strong>Último clic:</strong> <span id="last-click" class="data-value">Ninguno aún</span>
+                            🖱️ <strong>Último clic:</strong> <span id="last-click" class="data-value">Esperando interacción...</span>
                         </div>
                         <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
-                            📜 <strong>Scroll actual:</strong> <span id="current-scroll" class="data-value">0px</span>
+                            📜 <strong>Posición de scroll:</strong> <span id="current-scroll" class="data-value">0px</span>
                         </div>
                         <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
-                            ⏱️ <strong>Tiempo en página:</strong> <span id="time-on-page" class="data-value">0 segundos</span>
+                            ⏰ <strong>Tiempo en página:</strong> <span id="time-on-page" class="data-value">0 segundos</span>
                         </div>
                         <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
-                            🔄 <strong>Tamaño ventana:</strong> <span id="window-size" class="data-value">Calculando...</span>
+                            📐 <strong>Tamaño de ventana:</strong> <span id="window-size" class="data-value">Calculando...</span>
                         </div>
                         <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
-                            🎨 <strong>Huella digital del canvas:</strong> <span id="canvas-fingerprint" class="data-value">Generando...</span>
+                            🎨 <strong>Canvas fingerprint:</strong> <span id="canvas-fingerprint" class="data-value">Generando...</span>
                         </div>
                         <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
                             🎥 <strong>Dispositivos conectados:</strong> <span id="connected-devices" class="data-value">Detectando...</span>
@@ -249,30 +251,28 @@
                             📍 <strong>Ubicación GPS:</strong> <span id="gps-location" class="data-value">Solicitando permisos...</span>
                         </div>
                         <div style="background: rgba(255, 255, 255, 0.1); margin: 5px 0; padding: 8px 12px; border-radius: 5px; font-size: 0.9em;">
-                            📊 <strong>Total de eventos capturados:</strong> <span id="events-captured" class="data-value">0</span>
+                            📈 <strong>Eventos capturados:</strong> <span id="events-captured" class="data-value">0</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="warning" style="margin-top: 20px;">
-                <strong>⚠️ IMPORTANTE:</strong> Esta demostración muestra cómo los sitios web pueden recopilar 
-                una cantidad masiva de información personal sin que te des cuenta. En un sitio real, 
-                estos datos podrían venderse a terceros, usarse para publicidad dirigida, o incluso 
-                para rastrear tu actividad en línea.
-            </div>
-
-            <div class="warning">
-                <strong>🛡️ PROTECCIÓN:</strong> Para proteger tu privacidad, considera usar navegadores 
-                con protección de privacidad, VPNs, bloqueadores de anuncios, y revisa siempre las 
-                políticas de privacidad antes de usar un sitio web.
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 10px; text-align: center;">
+                <h3 style="color: #ff6b6b; margin-top: 0;">⚠️ Reflexión sobre Privacidad</h3>
+                <p style="font-size: 0.95em; line-height: 1.6;">
+                    Esta demo muestra cuántos datos pueden ser recopilados automáticamente por un sitio web sin que te des cuenta. 
+                    En la vida real, estos datos podrían ser utilizados para crear un perfil detallado de tu comportamiento, 
+                    preferencias y hábitos de navegación.
+                </p>
+                <p style="font-size: 0.9em; color: #ffd700; margin-top: 15px;">
+                    <strong>💡 Consejo:</strong> Siempre revisa las políticas de privacidad y utiliza herramientas de protección 
+                    como bloqueadores de anuncios, VPNs y navegadores centrados en la privacidad.
+                </p>
             </div>
         </div>
     </div>
 
-    <script src="/socket.io/socket.io.js"></script>
     <script>
-        const socket = io();
         const statusDiv = document.getElementById('status');
         const dataStatusDiv = document.getElementById('data-status');
         const sharedCountElement = document.getElementById('shared-count');
@@ -296,6 +296,34 @@
 
         // Update status
         statusDiv.textContent = 'Pero de hecho, esta página es una farza. Este gato es un espía que está intentando robar tus datos.';
+        
+        // HTTP request helper function
+        async function sendDataToServer(endpoint, data) {
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                return await response.json();
+            } catch (error) {
+                console.error('Error sending data:', error);
+                return { error: error.message };
+            }
+        }
+
+        // Get headers from server
+        async function getHeadersFromServer() {
+            try {
+                const response = await fetch('/api/headers');
+                return await response.json();
+            } catch (error) {
+                console.error('Error getting headers:', error);
+                return null;
+            }
+        }
         
         // Real-time monitoring functions
         function updateTimeOnPage() {
@@ -379,7 +407,6 @@
         }
 
         // Update greeting when name is entered
-        
         function updateGreeting() {
             const name = '';
             if (name) {
@@ -468,149 +495,115 @@
                 {
                     icon: '🎥',
                     title: 'Dispositivos multimedia',
-                    value: data.mediaDevices && Array.isArray(data.mediaDevices) ? `${data.mediaDevices.length} dispositivos detectados` : 'No disponible',
-                    description: 'Cámaras, micrófonos disponibles',
-                    level: 'moderate'
+                    value: data.mediaDevices ? `${data.mediaDevices.length} dispositivos detectados` : 'Sin permisos',
+                    description: 'Cámaras, micrófonos, altavoces conectados',
+                    level: 'critical'
                 },
                 {
                     icon: '🎨',
-                    title: 'Huella digital del canvas',
-                    value: data.canvas ? 'Generada' : 'No disponible',
-                    description: 'Identificador único basado en renderizado',
+                    title: 'Canvas fingerprint',
+                    value: data.canvasFingerprint ? truncateValue(data.canvasFingerprint, 30) : 'No disponible',
+                    description: 'Huella digital única del navegador',
                     level: 'moderate'
                 },
                 {
                     icon: '🖼️',
-                    title: 'Información WebGL',
-                    value: data.webgl?.vendor ? `${data.webgl.vendor}, ${data.webgl.renderer}` : 'No disponible',
-                    description: 'Tarjeta gráfica, controladores',
+                    title: 'WebGL fingerprint',
+                    value: data.webgl?.renderer ? truncateValue(data.webgl.renderer, 30) : 'No disponible',
+                    description: 'Información de la tarjeta gráfica',
                     level: 'moderate'
-                },
-                {
-                    icon: '🌐',
-                    title: 'Conexión',
-                    value: data.connection?.effectiveType ? `${data.connection.effectiveType}, ${data.connection.downlink}Mbps` : 'No disponible',
-                    description: 'Velocidad de internet, tipo de red',
-                    level: 'low'
-                },
-                {
-                    icon: '📄',
-                    title: 'Página web',
-                    value: `${data.document?.domain || 'Desconocido'}, ${data.document?.url ? data.document.url.length : 0} caracteres URL`,
-                    description: 'URL, referrer, título',
-                    level: 'low'
                 }
             ];
 
-            sharedDataList.innerHTML = items.map(item => `
-                <li class="${item.level}">
-                    ${item.icon} <strong>${item.title}:</strong> 
-                    <span class="data-value">${truncateValue(item.value)}</span><br>
-                    <span class="data-description">(${item.description})</span>
-                </li>
-            `).join('');
+            sharedDataList.innerHTML = '';
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.className = item.level;
+                li.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2em;">${item.icon}</span>
+                        <div style="flex: 1;">
+                            <strong>${item.title}:</strong>
+                            <span class="data-value">${item.value}</span>
+                            <div class="data-description">${item.description}</div>
+                        </div>
+                    </div>
+                `;
+                sharedDataList.appendChild(li);
+            });
         }
 
         // Populate local data list
         function populateLocalDataList() {
-            const localStorageSize = localStorage.length;
-            const sessionStorageSize = sessionStorage.length;
-            
-            const items = [
+            const localItems = [
                 {
-                    icon: '📁',
-                    title: 'Contenido del localStorage',
-                    value: `${localStorageSize} elementos guardados`,
-                    description: 'Datos guardados por otros sitios web'
+                    icon: '💾',
+                    title: 'Almacenamiento local',
+                    value: `${Object.keys(localStorage).length} elementos en localStorage`,
+                    description: 'Datos persistentes almacenados localmente',
+                    level: 'low'
                 },
                 {
-                    icon: '🗂️',
-                    title: 'Contenido del sessionStorage',
-                    value: `${sessionStorageSize} elementos temporales`,
-                    description: 'Datos temporales de la sesión'
+                    icon: '📊',
+                    title: 'Almacenamiento de sesión',
+                    value: `${Object.keys(sessionStorage).length} elementos en sessionStorage`,
+                    description: 'Datos temporales de la sesión actual',
+                    level: 'low'
                 },
                 {
-                    icon: '📚',
+                    icon: '🔗',
+                    title: 'URL y referrer',
+                    value: truncateValue(window.location.href, 40),
+                    description: 'Página actual y página de origen',
+                    level: 'low'
+                },
+                {
+                    icon: '📝',
                     title: 'Historial de navegación',
-                    value: 'Inaccesible por JavaScript',
-                    description: 'Sitios web visitados anteriormente'
-                },
-                {
-                    icon: '⭐',
-                    title: 'Marcadores',
-                    value: 'Inaccesible por JavaScript',
-                    description: 'Favoritos guardados'
-                },
-                {
-                    icon: '🔑',
-                    title: 'Contraseñas guardadas',
-                    value: 'Protegido por el navegador',
-                    description: 'Credenciales almacenadas'
-                },
-                {
-                    icon: '🧩',
-                    title: 'Extensiones instaladas',
-                    value: 'Inaccesible por JavaScript',
-                    description: 'Add-ons y plugins del navegador'
-                },
-                {
-                    icon: '💳',
-                    title: 'Datos de autocompletado',
-                    value: 'Protegido por el navegador',
-                    description: 'Información de formularios guardada'
-                },
-                {
-                    icon: '🗃️',
-                    title: 'Base de datos IndexedDB',
-                    value: 'Acceso limitado al dominio',
-                    description: 'Almacenamiento local de aplicaciones'
-                },
-                {
-                    icon: '📱',
-                    title: 'Notificaciones',
-                    value: Notification?.permission ? `Permisos: ${Notification.permission}` : 'No disponible',
-                    description: 'Permisos y configuraciones'
-                },
-                {
-                    icon: '🖨️',
-                    title: 'Configuración de impresión',
-                    value: 'Inaccesible por JavaScript',
-                    description: 'Impresoras disponibles'
+                    value: `${history.length} entradas`,
+                    description: 'Número de páginas visitadas en esta sesión',
+                    level: 'moderate'
                 }
             ];
 
-            localDataList.innerHTML = items.map(item => `
-                <li class="low">
-                    ${item.icon} <strong>${item.title}:</strong> 
-                    <span class="data-value">${item.value}</span><br>
-                    <span class="data-description">(${item.description})</span>
-                </li>
-            `).join('');
+            localDataList.innerHTML = '';
+            localItems.forEach(item => {
+                const li = document.createElement('li');
+                li.className = item.level;
+                li.innerHTML = `
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2em;">${item.icon}</span>
+                        <div style="flex: 1;">
+                            <strong>${item.title}:</strong>
+                            <span class="data-value">${item.value}</span>
+                            <div class="data-description">${item.description}</div>
+                        </div>
+                    </div>
+                `;
+                localDataList.appendChild(li);
+            });
         }
 
-        // Comprehensive data collection function
+        // Collect comprehensive user data
         async function collectUserData() {
             const data = {
                 timestamp: new Date().toISOString(),
-                userName: '',
-                
-                // Browser and device information
                 userAgent: navigator.userAgent,
                 language: navigator.language,
                 languages: navigator.languages,
                 platform: navigator.platform,
                 cookieEnabled: navigator.cookieEnabled,
+                onLine: navigator.onLine,
                 doNotTrack: navigator.doNotTrack,
                 
-                // Screen and display information
+                // Screen information
                 screen: {
                     width: screen.width,
                     height: screen.height,
                     availWidth: screen.availWidth,
                     availHeight: screen.availHeight,
                     colorDepth: screen.colorDepth,
-                    pixelDepth: screen.pixelDepth,
-                    orientation: screen.orientation ? screen.orientation.angle : 'unknown'
+                    pixelDepth: screen.pixelDepth
                 },
                 
                 // Window information
@@ -620,8 +613,7 @@
                     outerWidth: window.outerWidth,
                     outerHeight: window.outerHeight,
                     scrollX: window.scrollX,
-                    scrollY: window.scrollY,
-                    devicePixelRatio: window.devicePixelRatio
+                    scrollY: window.scrollY
                 },
                 
                 // Document information
@@ -629,70 +621,38 @@
                     title: document.title,
                     url: document.URL,
                     referrer: document.referrer,
-                    domain: document.domain,
                     cookies: document.cookie,
                     lastModified: document.lastModified,
-                    charset: document.characterSet,
-                    readyState: document.readyState
+                    characterSet: document.characterSet
                 },
-                
-                // Connection information
-                connection: navigator.connection ? {
-                    effectiveType: navigator.connection.effectiveType,
-                    downlink: navigator.connection.downlink,
-                    rtt: navigator.connection.rtt,
-                    saveData: navigator.connection.saveData
-                } : null,
-                
-                // Hardware information
-                hardware: {
-                    memory: navigator.deviceMemory || null,
-                    cores: navigator.hardwareConcurrency || null,
-                    maxTouchPoints: navigator.maxTouchPoints || 0,
-                    vendor: navigator.vendor,
-                    webdriver: navigator.webdriver
-                },
-                
-                // Battery information (if available)
-                battery: null,
                 
                 // Timezone information
                 timezone: {
-                    offset: new Date().getTimezoneOffset(),
                     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-                    locale: Intl.DateTimeFormat().resolvedOptions().locale
+                    offset: new Date().getTimezoneOffset()
                 },
                 
-                // Performance information
-                performance: {
-                    timing: performance.timing ? {
-                        navigationStart: performance.timing.navigationStart,
-                        loadEventEnd: performance.timing.loadEventEnd,
-                        domContentLoadedEventEnd: performance.timing.domContentLoadedEventEnd
-                    } : null,
-                    navigation: performance.navigation ? {
-                        type: performance.navigation.type,
-                        redirectCount: performance.navigation.redirectCount
+                // Hardware information (if available)
+                hardware: {
+                    memory: navigator.deviceMemory,
+                    cores: navigator.hardwareConcurrency,
+                    connection: navigator.connection ? {
+                        effectiveType: navigator.connection.effectiveType,
+                        downlink: navigator.connection.downlink,
+                        rtt: navigator.connection.rtt
                     } : null
                 },
-                
-                // Media devices
-                mediaDevices: null,
                 
                 // WebGL information
                 webgl: getWebGLInfo(),
                 
-                // Canvas fingerprinting
-                canvas: getCanvasFingerprint(),
+                // Canvas fingerprint
+                canvasFingerprint: getCanvasFingerprint(),
                 
-                // Local storage check
-                localStorage: typeof(Storage) !== "undefined",
-                sessionStorage: typeof(Storage) !== "undefined",
-                
-                // WebRTC information
-                webrtc: null
+                // User name if provided
+                userName: document.getElementById('userName')?.value || null
             };
-            
+
             // Collect battery information
             if ('getBattery' in navigator) {
                 try {
@@ -774,7 +734,7 @@
             
             if ('geolocation' in navigator) {
                 navigator.geolocation.getCurrentPosition(
-                    (position) => {
+                    async (position) => {
                         const locationData = {
                             latitude: position.coords.latitude,
                             longitude: position.coords.longitude,
@@ -789,7 +749,7 @@
                         // Update real-time display
                         gpsLocationElement.textContent = `${position.coords.latitude.toFixed(6)}, ${position.coords.longitude.toFixed(6)} (±${Math.round(position.coords.accuracy)}m)`;
                         
-                        socket.emit('location-data', locationData);
+                        await sendDataToServer('/api/location-data', locationData);
                         updateDataCounter();
                         updateEventCounter();
                         dataStatusDiv.innerHTML += '<br>📍 ¡Datos de ubicación recopilados!';
@@ -797,7 +757,7 @@
                         // Update shared data list with location
                         populateSharedDataList({...collectedData, location: locationData});
                     },
-                    (error) => {
+                    async (error) => {
                         const locationError = {
                             error: error.message,
                             code: error.code
@@ -806,7 +766,7 @@
                         // Update real-time display
                         gpsLocationElement.textContent = `Error: ${error.message}`;
                         
-                        socket.emit('location-data', locationError);
+                        await sendDataToServer('/api/location-data', locationError);
                         dataStatusDiv.innerHTML += '<br>📍 Acceso a ubicación denegado o falló';
                     },
                     {
@@ -817,15 +777,18 @@
                 );
             } else {
                 gpsLocationElement.textContent = 'No compatible con este navegador';
-                socket.emit('location-data', { error: 'Geolocation not supported' });
+                sendDataToServer('/api/location-data', { error: 'Geolocation not supported' });
                 dataStatusDiv.innerHTML += '<br>📍 Geolocalización no compatible';
             }
         }
 
-        // Listen for ngrok headers from server
-        socket.on('ngrok-headers', (headers) => {
-            console.log('NGROK HEADERS:', headers);
-        });
+        // Get headers from server and log them
+        async function getAndLogHeaders() {
+            const headers = await getHeadersFromServer();
+            if (headers) {
+                console.log('HEADERS FROM SERVER:', headers);
+            }
+        }
         
         // Start data collection when page loads
         window.addEventListener('load', async () => {
@@ -833,8 +796,11 @@
                 // Initialize real-time monitoring first
                 initializeRealTimeMonitoring();
                 
+                // Get headers from server
+                await getAndLogHeaders();
+                
                 const userData = await collectUserData();
-                socket.emit('user-data', userData);
+                await sendDataToServer('/api/user-data', userData);
                 updateDataCounter();
                 updateEventCounter();
                 
@@ -856,11 +822,11 @@
         });
         
         // Collect additional data on user interactions
-        document.addEventListener('click', (e) => {
+        document.addEventListener('click', async (e) => {
             // Update real-time display
             lastClickElement.textContent = `X: ${e.clientX}, Y: ${e.clientY} en ${e.target.tagName || 'elemento'}`;
             
-            socket.emit('user-data', {
+            await sendDataToServer('/api/user-data', {
                 event: 'click',
                 timestamp: new Date().toISOString(),
                 coordinates: { x: e.clientX, y: e.clientY },
@@ -870,8 +836,8 @@
             updateEventCounter();
         });
         
-        document.addEventListener('scroll', () => {
-            socket.emit('user-data', {
+        document.addEventListener('scroll', async () => {
+            await sendDataToServer('/api/user-data', {
                 event: 'scroll',
                 timestamp: new Date().toISOString(),
                 scrollY: window.scrollY,
@@ -880,15 +846,7 @@
             updateDataCounter();
             updateEventCounter();
         });
-        
-        // Connection status
-        socket.on('connect', () => {
-            console.log('Connected to server');
-        });
-        
-        socket.on('disconnect', () => {
-            console.log('Disconnected from server');
-        });
     </script>
 </body>
 </html>
+
